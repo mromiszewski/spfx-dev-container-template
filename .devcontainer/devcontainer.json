@@ -1,0 +1,30 @@
+// For more information on how to run this SPFx project in a VS Code Remote Container, please visit https://aka.ms/spfx-devcontainer
+{
+    "name": "SPFx latest",
+    "image": "docker.io/m365pnp/spfx:latest",
+    // Set *default* container specific settings.json values on container create.
+    "settings": {},
+    // Add the IDs of extensions you want installed when the container is created.
+    "extensions": [
+        "editorconfig.editorconfig",
+        "dbaeumer.vscode-eslint",
+        "eliostruyf.spfx-essentials"
+    ],
+    // Use 'forwardPorts' to make a list of ports inside the container available locally.
+    "forwardPorts": [
+        4321,
+        35729
+    ],
+    "portsAttributes": {
+        "4321": {
+            "label": "Manifest",
+            "requireLocalPort": true
+        },
+        "35729": {
+            "label": "LiveReload",
+            "requireLocalPort": true
+        }
+    },
+    "postCreateCommand": "bash .devcontainer/spfx-startup.sh",
+    "remoteUser": "node"
+}
